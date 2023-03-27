@@ -9,7 +9,7 @@ import fs from 'fs'
 
 let Botname = '水儿';
 let mag = '咏唱中...'
-let timeout = 15000;
+let timeout = 35000;
 
 export class example extends plugin {
   constructor () {
@@ -24,28 +24,28 @@ export class example extends plugin {
       rule: [
         {
           /** 命令正则匹配 */
-          reg: '^(#|来点)+(美女)$',
+          reg: '^(#|来个)+(美女)$',
           /** 执行方法 */
           fnc: 'meinv'
         },
         {
-          reg:'^(#|来点)+(美图)$',
+          reg:'^(#|来个)+(美图)$',
           fnc:'meitu'
         },
         {
-          reg:'^(#|来点)+(巨乳)$',
+          reg:'^(#|来点)+(00)$',
           fnc:'jur'
         },
         {
-          reg:'^(#|来点)+(网红图)$',
+          reg:'^(#|来个)+(大水风)$',
           fnc:'mcn'
         },
         {
-          reg:'^(#|来点)+(二次元)$',
+          reg:'^(#|来个)+(动漫)$',
           fnc:'erci'
         },
         {
-          reg:'^(#|来点)+(福利图)$',
+          reg:'^(#|来个)+(福利图)$',
           fnc:'ppurl'
         },
         {
@@ -176,19 +176,24 @@ export class example extends plugin {
     }  if (onoff == '关闭' && e.isMaster) {
       e.reply(`自动撤回已关闭`);
       timeout = 0;
+    }  else if  (onoff == '开启' && e.isMaster) {
+      e.reply(`自动撤回已开启`);
+      timeout = 15000;
     }
   }
 
   
   async Help(e){
     let msg = [
-      '已收藏以下好看的',
+      '已收藏以下好看的，输入来个+',
       '\n',
       '美女,',
       '美图,',
-	  '二次元,',
-      '福利,',
-      '网红图',
+	  '动漫,',
+      '福利图,',
+      '\n',
+      '设定:设定撤回开启,',
+      '设定撤回关闭,',
     ]
     await e.reply(msg,true)
   }
