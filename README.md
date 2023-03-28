@@ -1,9 +1,9 @@
-# give_me_water__原神机器人插件
+# water   原神机器人插件
 ### 用Yunzaibot发点三次元色图（二次元的也不是不能做）
 </div>
 <div align="center">
 
-# 涩涩插件-give_me_water
+# 涩涩插件----    water
 
 </div>
 ## 是什么？
