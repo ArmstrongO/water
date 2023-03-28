@@ -190,10 +190,11 @@ export class example extends plugin {
       '美女,',
       '美图,',
 	  '动漫,',
-      '福利图,',
+      '福利图',
       '\n',
-      '设定:设定撤回开启,',
-      '设定撤回关闭,',
+      '设定撤回开启,',
+      '\n',
+      '设定撤回关闭',
     ]
     await e.reply(msg,true)
   }
