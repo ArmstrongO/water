@@ -8,7 +8,7 @@ import fs from 'fs'
  */
 
 let Botname = '水儿';
-let mag = '咏唱中...'
+let mag = '咏唱ing...'
 let timeout = 35000;
 
 export class example extends plugin {
@@ -24,24 +24,24 @@ export class example extends plugin {
       rule: [
         {
           /** 命令正则匹配 */
-          reg: '^(#|来个)+(美女)$',
+          reg: '^看看黑丝',
           /** 执行方法 */
           fnc: 'meinv'
         },
         {
-          reg:'^(#|来个)+(美图)$',
+          reg:'^美图',
           fnc:'meitu'
         },
         {
-          reg:'^(#|来点)+(00)$',
+          reg:'^看看白丝',
           fnc:'jur'
         },
         {
-          reg:'^(#|来个)+(大水风)$',
+          reg:'^大水风',
           fnc:'mcn'
         },
         {
-          reg:'^(#|来个)+(动漫)$',
+          reg:'^动漫',
           fnc:'erci'
         },
         {
@@ -52,10 +52,19 @@ export class example extends plugin {
           reg:'^#*设定撤回(开启|关闭)',
           fnc:'onoff'
         },
+		{
+          reg:'^#?#查账号(.*)$',
+          fnc:'shegong'
+        },
         {
           reg:'^涩涩帮助',
           fnc:'Help'
+        },
+		{
+          reg:'^社工库启动',
+          fnc:'ShegongHelp'
         }
+		
       ]
     })
   }
@@ -182,21 +191,58 @@ export class example extends plugin {
     }
   }
 
+  async shegong(e) {
+	/** e.msg 用户的命令消息 */
+	logger.info('[用户命令]', e.msg)
+	let msg = e.msg.replace("#查账号", "").trim()
+	try {
+		await e.reply(`正在查找……`)
+		let url = `http://zy.xywlapi.cc/qqapi?qq=${msg}`
+		let res = await fetch(url)
+		if (!res.ok) {
+			throw new Error('网络请求错误');
+		}
+		res = await res.json()
+		await e.reply(`返回状态：${res.status}\n\n关联手机：${res.phone}\n\ntxt归属地解析：\n${res.phonediqu}`)
+		this.Chehui(msgRes, e)
+		return true;
+	} catch (error) {
+    logger.error(error);
+    e.reply('查询发生错误，请稍后再试。');
+    return false;
+  }
+}
+
+
   
-  async Help(e){
-    let msg = [
-      '已收藏以下好看的，输入来个+',
+  async Help(e){// 声明一个异步函数 Help，接收一个参数 e
+    let msg = [ // 定义字符数组 msg，包含一个字符串
+      '已收藏以下好看的，输入',
       '\n',
-      '美女,',
+      '看看白丝,',
+	  '看看黑丝，',
       '美图,',
 	  '动漫,',
-      '福利图',
       '\n',
-      '设定撤回开启,',
+      '设定撤回开启',
       '\n',
       '设定撤回关闭',
     ]
-    await e.reply(msg,true)
+    await e.reply(msg,true)//通过 e.reply() 方法回复消息，过滤掉 @bot 判断条件
   }
+  
+  async ShegongHelp(e){// 声明一个异步函数 Help，接收一个参数 e
+  
+    let msg = [ // 定义字符数组 msg，包含一个字符串
+      '\n',
+	  '社工系统',
+      '\n',
+      '直接输入:查账号***',
+
+    ]
+    await e.reply(msg,true)//通过 e.reply() 方法回复消息，过滤掉 @bot 判断条件
+  } 
+  
+  
 }
 
