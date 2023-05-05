@@ -16,7 +16,7 @@
 cd至云崽根目录再输入下面的内容
 
 ```
-git clone https://github.com/ArmstrongO/water.git ./plugins/example/
+git clone https://github.com/ArmstrongO/water.git ./plugins/example/1/
 ```
 ```
 git clone https://github.com/ArmstrongO/water_tu.git ./resources/result/
@@ -27,7 +27,7 @@ mv ./plugins/example/1/* ./plugins/example/
 
 或者使用国内镜像
 ```
-git clone https://gitcode.net/weixin_38503250/water.git ./plugins/example/
+git clone https://gitcode.net/weixin_38503250/water.git ./plugins/example/1/
 ```
 ```
 git clone https://gitcode.net/weixin_38503250/water_tu.git ./resources/result/
@@ -40,10 +40,10 @@ mv ./plugins/example/1/* ./plugins/example/
 
 安装后重启bot
 发送指令如下：
-#### 来个美女
-#### 来个美图
-#### 来个动漫
-#### 来个福利图
+#### 看看黑丝
+#### 美图
+#### 来动漫
+#### 看看白丝
 ## 免责声明
 
 1. 功能仅限内部交流与小范围使用，请勿将 `Yunzai-Bot` 及 `water` 用于任何以盈利为目的的场景；
